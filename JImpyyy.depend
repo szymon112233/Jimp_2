@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1460741276 source:d:\projekty\jimpyyy\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"files.c"
+
+1460742269 d:\projekty\jimpyyy\files.c
+	"files.h"
+
+1460742204 d:\projekty\jimpyyy\files.h
+
+1460733442 source:d:\projekty\jimpyyy\files.h
+
