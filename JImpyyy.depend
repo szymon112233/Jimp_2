@@ -12,3 +12,14 @@
 
 1460733442 source:d:\projekty\jimpyyy\files.h
 
+1460838297 source:d:\projekty\github\jimp_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"files.c"
+
+1460838880 d:\projekty\github\jimp_2\files.c
+	"files.h"
+
+1460838860 d:\projekty\github\jimp_2\files.h
+

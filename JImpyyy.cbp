@@ -32,6 +32,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="chaining.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="files.c">
 			<Option compilerVar="CC" />
 			<Option target="&lt;{~None~}&gt;" />

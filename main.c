@@ -7,7 +7,8 @@ int main()
 {
 
     zmienne_t* dane = data_init(3);
-    read_file("dane.txt",dane);
+    rule_t* rules;
+    read_data("dane.txt",dane);
     show_struct(dane);
 
     return 0;
