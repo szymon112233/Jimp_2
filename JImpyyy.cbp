@@ -39,6 +39,7 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="chaining.h" />
 		<Unit filename="files.c">
 			<Option compilerVar="CC" />
 			<Option target="&lt;{~None~}&gt;" />

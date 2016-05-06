@@ -12,15 +12,21 @@
 
 1460733442 source:d:\projekty\jimpyyy\files.h
 
-1461854656 source:d:\projekty\github\jimp_2\main.c
+1462559169 source:d:\projekty\github\jimp_2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"files.c"
+	"chaining.c"
 
-1461858603 d:\projekty\github\jimp_2\files.c
+1462554479 d:\projekty\github\jimp_2\files.c
 	"files.h"
 
-1461854868 d:\projekty\github\jimp_2\files.h
+1462558112 d:\projekty\github\jimp_2\files.h
+
+1462559203 d:\projekty\github\jimp_2\chaining.c
+	"chaining.h"
+
+1462555030 d:\projekty\github\jimp_2\chaining.h
 

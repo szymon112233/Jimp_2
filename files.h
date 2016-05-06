@@ -1,7 +1,7 @@
 #ifndef FILES_H_INCLUDED
 #define FILES_H_INCLUDED
 
-bool debug = true;
+bool debug = false;
 
 typedef struct
 {

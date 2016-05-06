@@ -40,7 +40,7 @@ void read_data(char* name,zmienne_t* temp)
                 {
 
                     temp->names[i]=c;
-                    //to do wpisywanie nazw wieloznakowych
+                    //TODO wpisywanie nazw wieloznakowych
                 }
             }
             else
