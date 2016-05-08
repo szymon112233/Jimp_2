@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 	zmienne_t* dane = data_init(get_data_cap(argv[1]));
 	read_data(argv[1],dane);
 	rule_t rules[rules_count];
-    read_rules(argv[2],&rules);
+    read_rules(argv[2],rules);
     char question;
 
     printf("Decision engine: Forward and backward Chaining \nWhat are you looking for ?\n");

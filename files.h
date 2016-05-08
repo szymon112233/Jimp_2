@@ -30,6 +30,14 @@ rule_t rule_init(int ,int );
 
 void show_rules(rule_t*, int);
 
+void show_rule(rule_t*, int, int);
+
 void show_struct(zmienne_t*);
+
+char get_value(char, zmienne_t*);
+
+void set_value(char , char , zmienne_t*);
+
+
 
 #endif // FILES_H_INCLUDED

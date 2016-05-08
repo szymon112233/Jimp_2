@@ -147,28 +147,60 @@ void show_struct(zmienne_t *temp)
     }
 
 }
-void show_rules(rule_t* rules, int n)
+void show_rule(rule_t* rules, int n , int s)
 {
-    int i, j, k=0;
-    for(i=0 ; i<n ; i++)
+    int j, k =0;
+    if (s>n)
     {
-        printf("%d. ",i);
-        k=0;
-        for (j = 0 ; j<rules[i].nvar ; j++)
+        printf("There's no such rule!");
+        return;
+    }
+    for (j = 0 ; j<rules[s].nvar ; j++)
         {
-            if(rules[i].negations[j]==true)
+            if(rules[s].negations[j]==true)
                 printf("!");
 
-            printf("%c ",rules[i].names[j]);
+            printf("%c ",rules[s].names[j]);
 
-            if (k<rules[i].nops)
-                printf("%c ", rules[i].operators[k]);
-            else if (k==rules[i].nops)
+            if (k<rules[s].nops)
+                printf("%c ", rules[s].operators[k]);
+            else if (k==rules[s].nops)
                 printf("= ");
 
             k++;
         }
-        printf("\n");
+    printf("\n");
+}
+void show_rules(rule_t* rules, int n)
+{
+    int i;
+    for(i=0 ; i<n ; i++)
+    {
+        show_rule(rules,n,i);
+    }
+}
 
+char get_value(char s, zmienne_t* dane)
+{
+    int i;
+    for(i = 0 ; i<dane->cap ; i++)
+    {
+        if(dane->names[i]==s)
+        {
+            return dane->values[i];
+        }
+    }
+    return 'X';//Sth went wrong
+}
+
+void set_value(char v , char s, zmienne_t* dane)
+{
+    int i;
+    for(i = 0 ; i<dane->cap ; i++)
+    {
+        if(dane->names[i]==s)
+        {
+            dane->values[i] = v;
+        }
     }
 }
