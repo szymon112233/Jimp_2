@@ -29,13 +29,14 @@ int main(int argc, char* argv[])
     char question;
 
     printf("Decision engine: Forward and backward Chaining \nWhat are you looking for ?\n");
-    scanf("%c",&question);
 
-    //show_struct(dane);
-    //show_rules(rules,rules_count);
+    while(scanf("%c",&question))
+    {
+        //show_struct(dane);
+        //show_rules(rules,rules_count);
 
 
-    fchain(question, dane, rules, rules_count);
-
+        fchain(question, dane, rules, rules_count);
+    }
     return 0;
 }

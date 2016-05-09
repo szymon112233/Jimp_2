@@ -128,6 +128,7 @@ rule_t rule_init(int a,int b)
     rule_t *temp= malloc(sizeof *temp);
     temp->nvar=a;
     temp->nops=b;
+    temp->counted=false;
 
     temp->names = malloc(a* sizeof (char));
     temp->negations = malloc(a* sizeof (bool));

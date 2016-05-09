@@ -16,6 +16,7 @@ typedef struct
     char* names;//last name = name of result
     char* operators;
     bool* negations;
+    bool counted;
 }   rule_t;
 
 void read_data(char*,zmienne_t*);
