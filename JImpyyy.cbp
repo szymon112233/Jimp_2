@@ -12,7 +12,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="dane.txt rules.txt -b" />
+				<Option parameters="data.txt rules_1.txt -b" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>

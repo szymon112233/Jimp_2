@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include<conio.h>
 #include "files.c"
 #include "chaining.c"
 
@@ -30,13 +31,15 @@ int main(int argc, char* argv[])
 
     printf("Decision engine: Forward and backward Chaining \nWhat are you looking for ?\n");
 
-    while(scanf("%c",&question))
+    while(question=getch())
     {
         //show_struct(dane);
         //show_rules(rules,rules_count);
 
-
-        fchain(question, dane, rules, rules_count);
+        if (chaining)
+            bchain(question, dane, rules, rules_count);
+        else
+            fchain(question, dane, rules, rules_count);
     }
     return 0;
 }
