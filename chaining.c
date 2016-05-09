@@ -78,9 +78,9 @@ bool istrue(char aa, char bb, bool na, bool nb, char t)
 
 void fchain(char s, zmienne_t* dane, rule_t* rules, int rules_count)
 {
-    int i;
+    int i, j;
     char value= get_value(s, dane);
-    bool tempv;
+    bool tempv, countable=false;
     if (value=='X')
     {
         printf("Couldn't find your variable in data. Check dane.txt \n");
@@ -96,40 +96,64 @@ void fchain(char s, zmienne_t* dane, rule_t* rules, int rules_count)
     else //Actually start solving
     {
         printf("%c unknown, chaining forward...\n",s);
-        for(i=0 ; i<rules_count ; i++)
+
+        for(i=0 ; i<rules_count ; i++) //Check if s is countable
         {
-            if (!rules[i].counted)
+            if(rules[i].names[rules[i].nvar-1]==s)
+                countable= true;
+        }
+        if (!countable)
+        {
+            printf("Cannot count %c from given rules !\n",s);
+            return;
+        }
+        while(value=='?')
+        {
+            for(i=0 ; i<rules_count ; i++)
             {
-                printf("Counting rule number %d...\n",i+1);
-                show_rule(rules,rules_count,i);
-
-                tempv=get_value(rules[i].names[0],dane); //Default value
-
-                int j;
-                for (j=1 ; j<rules[i].nvar-1 ; j++)
+                countable=true;
+                if (!rules[i].counted)
                 {
-                    if (j==1)
-                        tempv = istrue( get_value(rules[i].names[j-1], dane) , get_value(rules[i].names[j], dane) , rules[i].negations[j-1] , rules[i].negations[j], rules[i].operators[j-1]);
+                    printf("Counting rule number %d...\n",i+1);
+                    show_rule(rules,rules_count,i);
+
+                    for (j=0 ; j<rules[i].nvar-1 ; j++)
+                    {
+                        if(get_value(rules[i].names[j],dane)=='?')
+                            countable=false;
+                    }
+                    if (countable)
+                    {
+                        tempv=get_value(rules[i].names[0],dane); //Default value
+
+                        for (j=1 ; j<rules[i].nvar-1 ; j++)
+                        {
+                            if (j==1)
+                                tempv = istrue( get_value(rules[i].names[j-1], dane) , get_value(rules[i].names[j], dane) , rules[i].negations[j-1] , rules[i].negations[j], rules[i].operators[j-1]);
+                            else
+                                tempv = istrue( tempv , get_value(rules[i].names[j], dane) , false , rules[i].negations[j], rules[i].operators[j-1]);
+                        }
+
+                        printf("Rule number %d counted, %c = %d\n", i+1, rules[i].names[rules[i].nvar-1], tempv);
+
+                        if (tempv)
+                            set_value('1', rules[i].names[rules[i].nvar-1] , dane);
+                        else
+                            set_value('0', rules[i].names[rules[i].nvar-1] , dane);
+
+                        rules[i].counted=true;
+
+
+                        if(rules[i].names[rules[i].nvar-1]==s)
+                            i=rules_count;
+                    }
                     else
-                        tempv = istrue( tempv , get_value(rules[i].names[j], dane) , false , rules[i].negations[j], rules[i].operators[j-1]);
+                        printf("Uncountable for now .. skipping\n");
                 }
-
-                printf("Rule number %d counted, %c = %d\n", i+1, rules[i].names[rules[i].nvar-1], tempv);
-
-                if (tempv)
-                    set_value('1', rules[i].names[rules[i].nvar-1] , dane);
-                else
-                    set_value('0', rules[i].names[rules[i].nvar-1] , dane);
-
-                rules[i].counted=true;
-
-
-                if(rules[i].names[rules[i].nvar-1]==s)
-                    i=rules_count;
             }
+            value= get_value(s, dane);
         }
 
-        value= get_value(s, dane);
         if(value=='1')
             printf("%c = true\n",s);
         else if(value=='0')
