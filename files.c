@@ -28,7 +28,7 @@ void read_data(char* name,zmienne_t* temp)
         if (debug)
             printf("\n%d. ",i);
         c=fgetc(plik);
-        while (c!='\n')
+        while (c!='\n' && c!=EOF)
         {
             if (debug)
                 printf("%c",c);

@@ -10,7 +10,7 @@
 
 int main(int argc, char* argv[])
 {
-    if( argc >4 || argc<3 ) {
+    if( argc !=4) {
 		fprintf( stderr, "Wrong number of arguments !" );
 		return EXIT_FAILURE;
 	}
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
         //show_struct(dane);
         //show_rules(rules,rules_count);
 
-        if (chaining)
+        if (chaining=='b')
             bchain(question, dane, rules, rules_count);
         else
             fchain(question, dane, rules, rules_count);

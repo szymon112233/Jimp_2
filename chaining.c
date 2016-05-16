@@ -82,6 +82,7 @@ char bchainrec(char s, zmienne_t* dane, rule_t* rules, int r, int n)
     char temp;
     bool tempv=false;
     printf("Counting rule number %d...\n",r+1);
+    show_rule(rules,n,r);
     for(i=0 ; i<rules[r].nvar-1 ; i++)
     {
         if(get_value(rules[r].names[i],dane)=='?')
